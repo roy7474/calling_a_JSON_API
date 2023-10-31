@@ -116,3 +116,14 @@ while True:
     #if api_key is not False: parms['key'] = api_key
     url = serviceurl + urllib.parse.urlencode(parms)
 
+    print('Retrieving', url)
+    uh = urllib.request.urlopen(url, context=ctx)
+    data = uh.read().decode()
+    print('Retrieved', len(data), 'characters')
+
+    try:
+        js = json.loads(data)
+    except:
+        js = None
+
+   
