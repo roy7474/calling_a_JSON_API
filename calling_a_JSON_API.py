@@ -126,4 +126,8 @@ while True:
     except:
         js = None
 
-   
+    if 'place_id' in js:
+        place_id = js['place_id']
+        print('place id:', place_id)
+    else:
+        print("place ID not found for", address)
