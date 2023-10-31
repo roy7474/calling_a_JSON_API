@@ -105,3 +105,14 @@ serviceurl = 'http://py4e-data.dr-chuck.net/json?'
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
+
+while True:
+    address = input('Enter location: ')
+    if len(address) < 1: 
+        break
+
+    # parms = dict()
+    parms = {'address' : address}
+    #if api_key is not False: parms['key'] = api_key
+    url = serviceurl + urllib.parse.urlencode(parms)
+
