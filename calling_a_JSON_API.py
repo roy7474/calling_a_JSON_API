@@ -97,7 +97,7 @@ Hint: The first seven characters of the place_id are "ChIJD1Q ...'''
 
 
 
-'''
+
 import urllib.request, urllib.parse, urllib.error
 import json
 import ssl
@@ -137,8 +137,12 @@ while True:
         print('place id:', place_id)
     else:
         print("place ID not found for", address)
-    '''
 
+
+
+
+# Both programs work, it turns out that there is a error in the sample solution provided...
+'''
 import urllib.request, urllib.parse, urllib.error
 import json
 import ssl
@@ -148,11 +152,12 @@ api_key = False
 # api_key = 'AIzaSy___IDByT70'
 # https://developers.google.com/maps/documentation/geocoding/intro
 
-if api_key is False:
-    api_key = 42
-    serviceurl = 'http://py4e-data.dr-chuck.net/json?'
-else :
-    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+#if api_key is False:
+#    api_key = 42
+#    serviceurl = 'http://py4e-data.dr-chuck.net/json?'
+#else :
+#    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+serviceurl = 'http://py4e-data.dr-chuck.net/json?'
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
@@ -184,7 +189,7 @@ while True:
         print(data)
         continue
 
-    print(json.dumps(js, indent=4))
+    #print(json.dumps(js, indent=4))
 
     pid = js['results'][0]['place_id']
-    print('Place id:', pid)
+    print('Place id:', pid)'''
