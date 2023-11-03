@@ -163,18 +163,19 @@ while True:
     address = input('Enter location: ')
     if len(address) < 1: break
 
-    parms = dict()
-    parms['address'] = address
-    if api_key is not False: parms['key'] = api_key
-    url = serviceurl + urllib.parse.urlencode(parms)
+    #parms = dict()
+    #parms['address'] = address
+    #if api_key is not False: parms['key'] = api_key
+    #url = serviceurl  + urllib.parse.urlencode(parms)
+    url = serviceurl  + urllib.parse.urlencode({'address': address})
 
     print('Retrieving', url)
     uh = urllib.request.urlopen(url, context=ctx)
-    data = uh.read().decode()
+    data = uh.read().decode() #decode since it is coming as UTF-8
     print('Retrieved', len(data), 'characters')
 
     try:
-        js = json.loads(data)
+        js = json.loads(data) #parse the data
     except:
         js = None
 
